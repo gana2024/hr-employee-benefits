@@ -1,0 +1,37 @@
+<odoo>
+    <!-- HR Manager: Full Access -->
+    <record id="rule_hr_manager_full_access" model="ir.rule">
+        <field name="name">HR Manager Full Access</field>
+        <field name="model_id" ref="model_hr_employee_benefits"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('hr_employee_benefits.group_hr_manager'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <!-- Team Leader: View/Create for employees they manage -->
+    <record id="rule_team_leader_subordinates" model="ir.rule">
+        <field name="name">Team Leader Access for Managed Employees</field>
+        <field name="model_id" ref="model_hr_employee_benefits"/>
+        <field name="domain_force">[('employee_id.parent_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('hr_employee_benefits.group_team_leader'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+
+    <!-- Employee: View own benefits -->
+    <record id="rule_employee_own_benefits" model="ir.rule">
+        <field name="name">Employee View Own Benefits</field>
+        <field name="model_id" ref="model_hr_employee_benefits"/>
+        <field name="domain_force">[('employee_id.user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('hr_employee_benefits.group_hr_employee'))]"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+</odoo>

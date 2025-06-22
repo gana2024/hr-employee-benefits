@@ -1,0 +1,27 @@
+<odoo>
+
+        <menuitem id="menu_employee_root"
+              name="Hr Employee Benefits"
+        />
+
+
+<menuitem id="menu_employee_views"
+          name="Employee Benefits"
+          parent="menu_employee_root"
+          action="action_employee_views"
+/>
+
+
+ <menuitem id="menu_benefit_approval_views"
+              name="Benefits Approval"
+              parent="menu_employee_root"
+              action="action_approval_views"
+ />
+
+
+    <menuitem id="menu_hr_employee_benefits_report"
+              name="Benefits Report"
+              parent="menu_employee_root"
+              action="action_hr_employee_benefits_report"
+    />
+</odoo>

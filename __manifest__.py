@@ -1,0 +1,21 @@
+{
+    'name': "Hr Employee Benefits",
+    'version': '1.0',
+    'depends': ['base', 'hr'],
+    'author': "Gana",
+    'category': 'human resources',
+    'description': "employee benefits",
+    'data': [
+        'security/res_groups.xml',
+        'security/record_rules.xml',
+        'security/ir.model.access.csv',
+        'views/employee_views.xml',
+        'views/Benefits_approval_views.xml',
+        'views/hr_employee_benefits_report_views.xml',
+        'views/menu_views.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+    'license': 'LGPL-3',
+}
